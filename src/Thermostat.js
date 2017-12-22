@@ -6,6 +6,7 @@ function Thermostat(){
   this.MAXIMUM_TEMPERATURE_FOR_LOW_ENERGY_USAGE = 18
   this.MAXIMUM_TEMPERATURE_FOR_MEDIUM_ENERGY_USAGE = 25
   this.powerSaver = true
+  this.energyUsage = "medium-usage"
   this.currentTemperature = this.DEFAULT_TEMPERATURE
 };
 
@@ -24,6 +25,7 @@ Thermostat.prototype.increaseTemperature = function() {
   	throw(new Error("Max Temperature Reached!"));
   };
   this.currentTemperature ++
+  this.calculateEnergyUsage()
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
@@ -31,24 +33,26 @@ Thermostat.prototype.decreaseTemperature = function() {
     throw(new Error("Min Temperature Reached!"));
   };
   this.currentTemperature --
+  this.calculateEnergyUsage()
 };
 
 Thermostat.prototype.setPowerSaver = function(toggle) {
-	this.powerSaver = toggle
+	this.powerSaver ? this.powerSaver = false : this.powerSaver = true
 };
 
 Thermostat.prototype.resetTemperature = function() {
   this.currentTemperature = this.DEFAULT_TEMPERATURE
+  this.calculateEnergyUsage()
 };
 
-Thermostat.prototype.energyUsage = function(){
+Thermostat.prototype.calculateEnergyUsage = function(){
   if(this.currentTemperature < this.MAXIMUM_TEMPERATURE_FOR_LOW_ENERGY_USAGE) {
-    return "low-usage";
+    return this.energyUsage = "low-usage";
   }
   else if(this.currentTemperature < this.MAXIMUM_TEMPERATURE_FOR_MEDIUM_ENERGY_USAGE) {
-    return "medium-usage";
+    return this.energyUsage = "medium-usage";
   }
   else{
-    return "high-usage";
+    return this.energyUsage = "high-usage";
   };
 };

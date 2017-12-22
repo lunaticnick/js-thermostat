@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Java Thermostat</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="thermostatcss.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  <script src="Thermostat.js">
+  </script>
+  <script src="thermostatjquery.js">
+  </script>
+
+
+
+
+</head>
+
+<body>
+
+
+  <div class="row">
+    <div class="col-sm-12" align="center">
+      <h1>Temperature</h1>
+    </div>
+    <div class="col-sm-3">
+      <div class="container" align="center">
+        <input onclick="increase()" type="image" src="./images/plus.png" name="plus" id="plus-button" height="40" width="40" />
+      </div>
+      <div class="container" align="center">
+        <input onclick="decrease()" type="image" src="./images/minus.png" name="minus" id="minus-button" height="40" width="40" />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p id="temp" align="center" style=" font-size: 80px;">35</p>
+    </div>
+    <div class="col-sm-3">
+      <div class="container" align="center">
+        <input onclick="powersaver()" type="image" src="./images/energysave.png" name="energysaver" id="energysaver" height="40" width="40" />
+      </div>
+      <div class="container" align="center">
+        <input onclick="reset()" type="image" src="./images/reset.jpg" name="reset" id="resetbutton" height="45" width="45" />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="container" align="center">
+        <h2>Usage Levels</h2>
+        <div id="energyusage" class="circle"> </div>
+        <div id="energyusagetext"> LOW </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="container" align="center">
+        <h2>Power Save Mode</h2>
+        <div id="energysaverstat" class="circle"> </div>
+        <div id="energysaverstattext"> ON </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!--
+    <div class="col-sm-12">
+      <div id="energyusage" class="progress">
+        <div  class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100" style="width:100%">
+          <span class="sr-only">70% Complete</span>
+        </div>
+      </div>
+    </div> -->
+
+
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
