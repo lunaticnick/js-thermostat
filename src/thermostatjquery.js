@@ -1,5 +1,5 @@
-window.onload = function () {
-  thermostat = new Thermostat;
+window.onload = function() {
+  thermostat = new Thermostat();
   updatepage();
 };
 
@@ -9,98 +9,98 @@ var savercolor;
 var savertext;
 
 
-updatepage = function () {
+updatepage = function() {
   $("#temp").html(thermostat.currentTemperature)
   $("#energyusage").css("background-color", usagecolor)
   $("#energyusagetext").html(usagetext)
   $("#energysaverstat").css("background-color", savercolor)
   $("#energysaverstattext").html(savertext)
+
+  $('#select-city').submit(function(event) {
+    event.preventDefault();
+    var city = $('#current-city').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=d5f6b97b7dc7c19a2b7e322588e9551d&units=metric', function(data) {
+      $('#current-temperature').text(data.main.temp);
+      $('#selectedcity').text(data.name);
+      $('#countrya').text(data.sys.country);
+    })
+  })
 }
+
 
 $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=d5f6b97b7dc7c19a2b7e322588e9551d&units=metric', function(data){
   $('#current-temperature').text(data.main.temp);
-})
-
-$.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=d5f6b97b7dc7c19a2b7e322588e9551d&units=metric', function(data){
   $('#selectedcity').text(data.name);
+  $('#countrya').text(data.sys.country);
 })
 
 
-$('#select-city').submit(function(event) {
-  event.preventDefault();
-  var city = $('#current-city').val();
-  displayWeather(city);
-})
-
-
-
-
-usagecolor = function (){
-  if(thermostat.energyUsage === "low-usage"){
+usagecolor = function() {
+  if (thermostat.energyUsage === "low-usage") {
     return "green"
   }
-  if(thermostat.energyUsage === "medium-usage"){
+  if (thermostat.energyUsage === "medium-usage") {
     return "orange"
   }
-  if(thermostat.energyUsage === "high-usage"){
+  if (thermostat.energyUsage === "high-usage") {
     return "red"
   }
 };
 
-usagetext = function (){
-  if(thermostat.energyUsage === "low-usage"){
+usagetext = function() {
+  if (thermostat.energyUsage === "low-usage") {
     return "LOW"
   }
-  if(thermostat.energyUsage === "medium-usage"){
+  if (thermostat.energyUsage === "medium-usage") {
     return "MEDIUM"
   }
-  if(thermostat.energyUsage === "high-usage"){
+  if (thermostat.energyUsage === "high-usage") {
     return "HIGH"
   }
 };
 
-savercolor = function (){
-  if(thermostat.powerSaver === true){
+savercolor = function() {
+  if (thermostat.powerSaver === true) {
     return "green"
   }
-  if(thermostat.powerSaver === false){
+  if (thermostat.powerSaver === false) {
     return "red"
   }
 };
 
-savertext = function (){
-  if(thermostat.powerSaver === true){
+savertext = function() {
+  if (thermostat.powerSaver === true) {
     return "ON"
   }
-  if(thermostat.powerSaver === false){
+  if (thermostat.powerSaver === false) {
     return "OFF"
   }
 };
 
 
 
-function increase(){
+function increase() {
   thermostat.increaseTemperature()
   updatepage()
 };
 
 
-function decrease(){
+function decrease() {
   thermostat.decreaseTemperature()
   updatepage()
 };
 
-function reset(){
+function reset() {
   thermostat.resetTemperature()
   updatepage()
 };
 
-function powersaver(){
+function powersaver() {
   thermostat.setPowerSaver()
   updatepage()
 };
 
-function energyusage(){
+function energyusage() {
   thermostat.energyUsage()
   updatepage()
 };

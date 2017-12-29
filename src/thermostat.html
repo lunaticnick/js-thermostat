@@ -30,7 +30,7 @@
 
   <div class="row">
     <div class="col-sm-12" align="center">
-      <h1>Temperature</h1>
+      <h1>Temperature (C &deg;)</h1>
     </div>
     <div class="col-sm-3">
       <div class="container" align="center">
@@ -67,13 +67,19 @@
       </div>
     </div>
   </div>
-<br />
+  <br />
 
 
 
-<div id="cityweather" align="center">
-  <h2>Current temperature in <span id="selectedcity"></span> is:
-    <span id="current-temperature"></span> C
+  <div id="cityweather" align="center">
+    <h2>Current temperature in <br><span id="selectedcity"></span>, <span id="countrya"> </span><br>  is:<br>
+    <span id="current-temperature"></span> C &deg;
+  </div>
+
+  <form id="select-city" align="center">
+    <input id="current-city" type="text" placeholder="Enter a city"></input>
+    <input type="submit"></input>
+  </form>
 
 
 
