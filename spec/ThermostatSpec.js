@@ -66,17 +66,20 @@ describe("Thermostat", function() {
   describe("energy usage",function(){
     it("should show LOW-USAGE when < 18 degrees ", function() {
       thermostat.currentTemperature = 17;
-      expect(thermostat.energyUsage()).toBe("low-usage");
+      thermostat.calculateEnergyUsage()
+      expect(thermostat.energyUsage).toBe("low-usage");
     });
 
     it("should show MEDIUM-USAGE when < 25 degrees ", function() {
       thermostat.currentTemperature = 23;
-      expect(thermostat.energyUsage()).toBe("medium-usage");
+      thermostat.calculateEnergyUsage()
+      expect(thermostat.energyUsage).toBe("medium-usage");
     });
 
     it("should show HIGH-USAGE when > 25 degrees ", function() {
       thermostat.currentTemperature = 26;
-      expect(thermostat.energyUsage()).toBe("high-usage");
+      thermostat.calculateEnergyUsage()
+      expect(thermostat.energyUsage).toBe("high-usage");
     });
 
   });
