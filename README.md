@@ -22,7 +22,7 @@ Then there are two options:
 **Use the Thermostat interface**
 To start playing with the interface of the thermostat, please open ```thermostat.html``` located in ***src*** folder
 
-**Use the Thermostat interface**
+**Test the Thermostat interface**
 To have a look at the test for this app (written in [Jasmine](https://jasmine.github.io)), please open ```SpecRunner.html``` located in the root.
 
 In addition, there is a form that you can fill, which will allow you to see the temperature in other cities around the world.
